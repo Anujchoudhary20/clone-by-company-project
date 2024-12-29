@@ -1,7 +1,12 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 
 const HeaderComponent = () => {
+  const Navigate = useNavigate()
+
+  const HandelLogIn =()=>{
+    Navigate("/login")
+  }
     const navItem=[
         {Name :"Home",
          Navigat : "/"
@@ -35,7 +40,7 @@ const HeaderComponent = () => {
       ) : (
         <div className='flex justify-end text-white mx-7 p-5  '>
 
-          <Link to='/login' className='border-2 px-3 py-2 m-2 rounded-3xl' >Log In</Link>
+          <button className='border-2  rounded-3xl px-4 py-2' onClick={HandelLogIn}>LogIn</button>
         </div>
       )}
     </div>

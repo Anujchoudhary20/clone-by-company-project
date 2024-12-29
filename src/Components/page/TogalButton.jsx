@@ -96,7 +96,7 @@ const TogalButton = () => {
             Follow Glenn at the BBL and score awesome prizes!
           </p>
           {/* Buttan */}
-          <div className="flex justify-center  my-5 ">
+          <div className="flex justify-center  my-5">
             <button
               className=" rounded-3xl px-10 py-2  text-white mx-5 font-bold"
               onClick={HandelFixtures}
@@ -113,13 +113,13 @@ const TogalButton = () => {
             </button>
           </div>
           {/* Buttan data  */}
-           <div className=" flex p-5  my-1  bg-blue-600 w-full  justify-center ">
+           <div className=" flex p-5  my-1   justify-center ">
             <div className="">
               {togal == true
                 ? FixturesData.map((item) => (
-                  
-                    <div className=" flex    text-center items-center  flex-col">
-                      <div className="w-full  bg-neutral-900   my-3  py-4  px-20 rounded-2xl   items-center text-center">
+                  // bg-neutral-900 
+                    <div className=" flex  bg-red-700  text-center items-center  flex-col">
+                      <div className="w-full   my-3  py-4  px-20 rounded-2xl   items-center text-center">
                         <strong className="flex   justify-center " key={item.appos}>
                           {item.date} , {item.time}
                         </strong>
@@ -150,10 +150,10 @@ const TogalButton = () => {
                   ))
                 : ResultsData.map((item) => (
                     <div
-                      className="  text-center bg-pink-700 p-5  items-center "
+                      className="  text-center bg-red-400 p-10 w-full  items-center  "
                       style={{ width: "600px" }}
                     >
-                      <div className=" bg-red-600   my-3  py-4    rounded-2xl   items-center text-center">
+                      <div className="bg-neutral-900 w-full   my-3  py-4   rounded-2xl   items-center text-center">
                         <p className=" flex my-2 px-5 w-full ">
                           {item.conductedBy}
                         </p>
@@ -186,7 +186,7 @@ const TogalButton = () => {
                           </div>
                         </div>
 
-                        <p className="flex my-2   px-4">{item.win}</p>
+                        <p className="flex my-2  px-4">{item.win}</p>
                       </div>
                     </div>
                   ))}
