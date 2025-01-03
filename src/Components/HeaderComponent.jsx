@@ -20,14 +20,14 @@ const HeaderComponent = () => {
            },
 
     ]
-   const user =0;
+   const user =4;
   return (
-    <div>
+    <div className=''>
       {user > 0 ? (
-        <div>
+        <div className=' bg-blue-700 '>
           <h1 className="text-red-700 font-bold">Anuj Choudhary</h1>
           <nav>
-            <ul className="text-center gap-4 my-2 flex text-slate-300">
+            <ul className="text-center w-full gap-4 my-2 flex text-slate-300">
               {navItem.map((item) => (
                 <li key={item.Name} className="flex">
                   <Link to={item.Navigat}>{item.Name}</Link>
@@ -38,7 +38,7 @@ const HeaderComponent = () => {
           <hr className="" />
         </div>
       ) : (
-        <div className='flex justify-end text-white mx-7 p-5  '>
+        <div className='flex  justify-end text-white mx-7 p-5  '>
 
           <button className='border-2  rounded-3xl px-4 py-2' onClick={HandelLogIn}>LogIn</button>
         </div>

@@ -53,8 +53,7 @@ const Home = () => {
 
   return (
     <div className="items-center  text-white    p-5 w-full  ">
-      {/* <TogalButton/> */}
-      <div className="  flex  max-lg:flex-col   justify-between   w-full h-screen items-center   ">
+      <div className="  flex  max-lg:flex-col  justify-between   w-full h-screen items-center   ">
         {/* text */}
         <div className="     max-lg:my-10   text-white">
           <h1 className="flex items-center font-bold my-5">
@@ -67,7 +66,7 @@ const Home = () => {
             />
           </h1>
           <strong className="text-3xl">Anuj choudhary </strong>
-          <p className="font-bold  my-5 text-2xl">
+          <p className="font-bold max-sm:flex     max-sm:justify-center my-5 text-2xl">
             the offical funclub. Get podcasts, price,-fun day.
           </p>
           <button
@@ -85,13 +84,13 @@ const Home = () => {
             autoPlay
             muted
             loop
-            className="w-full h-full object-cover rounded-md"
+            className="w-full h-full  object-cover rounded-md"
           />
         </div>
       </div>
       {/*  section 2*/}
       <div className="w-full h-full   max-lg:flex-wrap py-10">
-        <p className="flex justify-center items-center text-center text-white">
+        <p className="flex justify-center items-center text-center  max-sm:text-sm text-white">
           JOIN AND ENTER THE DRAW TO WIN{" "}
           <FaRegHeart className="text-red-800 mx-5" />
         </p>
@@ -106,19 +105,19 @@ const Home = () => {
           ))}
         </div>
         {/* section 3 */}
-        <div className="text-white flex    flex-wrap justify-between px-5 mx-5 mt-20  items-center">
+        <div className="text-white flex    flex-wrap justify-between px-5  mx-5 mt-20  items-center">
           {/* video */}
-          <div className="max-lg:w-full w-96 h-screen   ">
+          <div className="max-lg:w-full w-96 h-96 mb-5  ">
             <video
               src={video}
               autoPlay
               muted
               loop
-              className="w-screen h-full max-sm:h-1/2 object-cover  rounded-md"
+              className="w-screen h-full  max-sm:h-full object-cover  rounded-md"
             />
           </div>
           {/* text */}
-          <div className="w-1/2 my-10">
+          <div className="w-1/2 max-sm:text-sm   max-sm:w-full ">
             <strong className=""> Feed </strong>
             <p className="my-5 font-bold text-2xl">
               Everything in one place. Podcasts, prizes, points and shopping and
@@ -132,21 +131,22 @@ const Home = () => {
         </div>
 
         {/* section 4 */}
-        {/* <TogalButton/> */}
+
+        <TogalButton/>
               {/* section 4 */}
-        <div className=" flex h-full mt-10 py-10   w-full justify-center">
-          <div>
+        <div className=" flex h-full  mt-10  w-full justify-center">
+          <div className="w-full  px-3">
             <strong className="flex justify-center">Shop</strong>
-            <p className="text-2xl flex justify-center  w-screen  ">
+            <p className="text-2xl flex justify-center  w-full  ">
               Exclusive deals on Glenn's playing kit, products and{" "}
             </p>
             <p className="text-2xl flex justify-center">
               his personal favourites.
             </p>
-            <div className=" flex  py-5 justify-between  mx-10  flex-wrap">
+            <div className=" flex   justify-between  mx-10  flex-wrap">
               {cardInfo.map((item) => (
-                <div className="flex  w-72 justify-center     py-5  mx-5 h-full" key={item.hading}>
-                  <div className=" p-5 h-96 mt-10 rounded-lg">
+                <div className="flex  w-72 justify-center       mx-5 h-full" key={item.hading}>
+                  <div className=" p-5 h-full mt-5  rounded-lg">
                     <img src={item.image} alt="" className="rounded-md " />
                     <h1 className="font-bold my-2">{item.hading}</h1>
                     <p className="font-bold my-2">{item.price}</p>

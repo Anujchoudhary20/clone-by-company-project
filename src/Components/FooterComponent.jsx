@@ -7,17 +7,17 @@ import { MdOutlineCopyright } from "react-icons/md";
 
 const FooterComponent = () => {
   const footerItem = [
-    { Name: "Profile", Navigat: "dashboard/profile" },
-    { Name: "Contect", Navigat: "dashboard/contect" },
-     { Name: "Terms", Navigat: "dashboard/terms" },
-    { Name: "Privacy", Navigat: "dashboard/privacy" },
-    { Name: "Shipping", Navigat: "dashboard/shipping" },
+    { Name: "Profile", Navigat: "/profile" },
+    { Name: "Contect", Navigat: "/contect" },
+     { Name: "Terms", Navigat: "/terms" },
+    { Name: "Privacy", Navigat: "/privacy" },
+    { Name: "Shipping", Navigat: "/shipping" },
   ];
   return (
-    <footer className="py-5">
-      <h1 className="text-red-700 font-bold">Anuj Choudhary</h1>
-      <div className="flex justify-between">
-        <nav className="flex gap-4 my-2 text-slate-300 px-4">
+    <footer className="py-5  w-screen">
+      <h1 className="text-red-700 mx-5 font-bold">Anuj Choudhary</h1>
+      <div className="flex justify-between  w-screen ">
+        <div className="flex  gap-4 my-2 text-slate-300 px-4">
           <ul className="text-center ">
             {footerItem.map((item) => (
               <li key={item.Name}>
@@ -25,7 +25,7 @@ const FooterComponent = () => {
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
         {/*social media link  */}
         <div className="text-red-600 px-10 flex gap-2  text-center text-2xl">
           <a href="https://www.instagram.com/" target="__black" className="">
