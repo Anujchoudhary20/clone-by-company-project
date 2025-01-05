@@ -18,7 +18,7 @@ const FooterComponent = () => {
       <h1 className="text-red-700 mx-5 font-bold">Anuj Choudhary</h1>
       <div className="flex justify-between  w-screen ">
         <div className="flex  gap-4 my-2 text-slate-300 px-4">
-          <ul className="text-center ">
+          <ul className="text-center flex gap-4 max-sm:flex-col ">
             {footerItem.map((item) => (
               <li key={item.Name}>
                 <Link to={item.Navigat}>{item.Name}</Link>{" "}

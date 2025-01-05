@@ -20,7 +20,7 @@ const HeaderComponent = () => {
            },
 
     ]
-   const user =4;
+   const user =0;
   return (
     <div className=''>
       {user > 0 ? (

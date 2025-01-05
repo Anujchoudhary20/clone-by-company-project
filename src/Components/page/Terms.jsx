@@ -1,9 +1,11 @@
 import React from 'react'
+import MultipleItems from './MultipleItems'
 
 const Terms = () => {
   return (
     <div className='text-white'>
-      Terms
+      Term
+      <MultipleItems/>
     </div>
   )
 }
