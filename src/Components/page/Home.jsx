@@ -5,10 +5,11 @@ import { FaPlusCircle } from "react-icons/fa";
 import video from "../../assets/cricket.mp4";
 import image from "../../assets/images.jpeg";
 import TogalButton from "./TogalButton";
+import SlicksSide from "./SlicksSide";
 const Home = () => {
   const Navigate = useNavigate();
   const HandelSignin = () => {
-    Navigate("/signUp");
+    Navigate("/signup");
   };
   
   const divData = [
@@ -53,7 +54,7 @@ const Home = () => {
 
   return (
     <div className="items-center  text-white    p-5 w-full  ">
-      <div className="  flex  max-lg:flex-col  justify-between   w-full h-screen items-center   ">
+      <div className="  flex  max-lg:flex-col  justify-between px-20 max-sm:p-2    w-full h-screen items-center   ">
         {/* text */}
         <div className="     max-lg:my-10   text-white">
           <h1 className="flex items-center font-bold my-5">
@@ -66,7 +67,7 @@ const Home = () => {
             />
           </h1>
           <strong className="text-3xl">Anuj choudhary </strong>
-          <p className="font-bold max-sm:flex     max-sm:justify-center my-5 text-2xl">
+          <p className="font-bold max-sm:flex      max-sm:justify-center my-5 text-2xl">
             the offical funclub. Get podcasts, price,-fun day.
           </p>
           <button
@@ -78,13 +79,13 @@ const Home = () => {
           </button>
         </div>
         {/* video */}
-        <div className="w-1/2 max-sm:w-full h-96  p-5   max-lg:my-5   ">
+        <div className=" max-sm:w-full h-96 max-2xl:w-96  p-5    max-lg:my-5   ">
           <video
             src={video}
             autoPlay
             muted
             loop
-            className="w-full h-full  object-cover rounded-md"
+            className="w-96 h-full  object-cover rounded-md"
           />
         </div>
       </div>
@@ -143,18 +144,7 @@ const Home = () => {
             <p className="text-2xl flex justify-center">
               his personal favourites.
             </p>
-            <div className=" flex   justify-between  mx-10  flex-wrap">
-              {cardInfo.map((item) => (
-                <div className="flex  w-72 justify-center       mx-5 h-full" key={item.hading}>
-                  <div className=" p-5 h-full mt-5  rounded-lg">
-                    <img src={item.image} alt="" className="rounded-md " />
-                    <h1 className="font-bold my-2">{item.hading}</h1>
-                    <p className="font-bold my-2">{item.price}</p>
-                    <p className="font-bold my-2">{item.other}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+           <SlicksSide/>
           </div>
         </div>
       

@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link,useNavigate} from "react-router-dom"
 
 const HeaderComponent = () => {
   const Navigate = useNavigate()
+  const[userDataInfo ,setUserDataInfo]=useState('')
+
+  useEffect(()=>{
+    const userData = JSON.parse(localStorage.getItem('userLogInformation')) || [''] ;
+    setUserDataInfo(userData)
+  },[])
+  console.log(userDataInfo.email,userDataInfo.password )
 
   const HandelLogIn =()=>{
     Navigate("/login")
@@ -20,11 +27,13 @@ const HeaderComponent = () => {
            },
 
     ]
-   const user =0;
+    
+    const user = (userDataInfo.email && userDataInfo.password) 
+    console.log(user)
   return (
     <div className=''>
-      {user > 0 ? (
-        <div className=' bg-blue-700 '>
+      {userDataInfo > user ? (
+        <div className=' '>
           <h1 className="text-red-700 font-bold">Anuj Choudhary</h1>
           <nav>
             <ul className="text-center w-full gap-4 my-2 flex text-slate-300">

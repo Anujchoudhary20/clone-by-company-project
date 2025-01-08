@@ -3,14 +3,14 @@ import image from "../../assets/images.jpeg"
 
 
 const TogalButton = () => {
-    const [togal, setTogal] = useState(true);
+    const [togal, setTogal] = useState(false);
 
     const HandelFixtures = () => {
-        setTogal(false);
+        setTogal(true);
       };
     
       const HandelResults = () => {
-        setTogal(true);
+        setTogal(false);
       };
     
       const FixturesData = [

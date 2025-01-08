@@ -15,8 +15,8 @@ import SignIn from "./Components/page/SignUp";
 
 function App() {
   const location =useLocation()
-  const ShowHeader = !["/login"].includes(location.pathname);
-  const ShowFooter = !["/login"].includes(location.pathname);
+  const ShowHeader = !["/login", "/signup"].includes(location.pathname);
+  const ShowFooter = !["/login", "/signup"].includes(location.pathname);
   const RouteData = [
     { element:  <Home/>,  path: "/" },
     { element:  <Login/>,  path: "/login" },

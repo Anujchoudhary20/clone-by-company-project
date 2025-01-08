@@ -7,11 +7,11 @@ import { MdOutlineCopyright } from "react-icons/md";
 
 const FooterComponent = () => {
   const footerItem = [
-    { Name: "Profile", Navigat: "/profile" },
+    // { Name: "Profile", Navigat: "/profile" },
     { Name: "Contect", Navigat: "/contect" },
      { Name: "Terms", Navigat: "/terms" },
     { Name: "Privacy", Navigat: "/privacy" },
-    { Name: "Shipping", Navigat: "/shipping" },
+    // { Name: "Shipping", Navigat: "/shipping" },
   ];
   return (
     <footer className="py-5  w-screen">
@@ -40,7 +40,7 @@ const FooterComponent = () => {
           </a>
         </div>
       </div>
-      <strong className="text-white flex items-center ">
+      <strong className="text-white flex items-center mx-5">
         Anuj choudhary <MdOutlineCopyright /> 2024{" "}
       </strong>
     </footer>
