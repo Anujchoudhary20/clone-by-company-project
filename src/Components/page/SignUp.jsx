@@ -7,7 +7,9 @@ import { toast } from "react-toastify";
 const SignIn = () => {
   const [userData, setUserData] = useState({
     name: "",
+    LastName:"",
     email: "",
+    MobileNumber :"",
     password: "",
   });
   const Navigate = useNavigate();
@@ -17,7 +19,7 @@ const SignIn = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    if (!userData.name || !userData.email || !userData.password) {
+    if (!userData.name ||!userData.LastName || !userData.email ||!userData.MobileNumber || !userData.password ) {
       toast.error("Please fill all the fields!");
       // alert("Please fill all the fields! ");
     } else {
@@ -42,9 +44,19 @@ const SignIn = () => {
             <label className='text-2xl font-bold max-sm:text-xl text-gray-600'> Name</label>
             <input
               type="text"
-              placeholder="Enter Your Name"
+              placeholder="Name"
               name="name"
               value={userData.name}
+              onChange={hendelOnchange}
+              className='w-full h-10 text-black max-sm:text-xl my-3 rounded-md text-xl px-2'
+              
+            />
+               <label className='text-2xl font-bold max-sm:text-xl text-gray-600'> Last Name</label>
+            <input
+              type="text"
+              placeholder="Last name"
+              name="LastName"
+              value={userData.LastName}
               onChange={hendelOnchange}
               className='w-full h-10 text-black max-sm:text-xl my-3 rounded-md text-xl px-2'
               
@@ -59,12 +71,32 @@ const SignIn = () => {
               className='w-full h-10 text-black max-sm:text-xl my-3 rounded-md text-xl px-2'
               
             />
+               <label className='text-2xl font-bold max-sm:text-xl text-gray-600'> Mobile Number</label>
+            <input
+              type="tel"
+              placeholder="Mobile Number"
+              name="MobileNumber"
+              value={userData.MobileNumber}
+              onChange={hendelOnchange}
+              className='w-full h-10 text-black max-sm:text-xl my-3 rounded-md text-xl px-2'
+              
+            />
             <label className='text-2xl font-bold max-sm:text-xl text-gray-600'> Password</label>
             <input
               type="password"
               placeholder="Password"
               name="password"
               value={userData.password}
+              onChange={hendelOnchange}
+              className='w-full h-10 text-black max-sm:text-xl my-3 rounded-md text-xl px-2'
+              
+            />
+             <label className='text-2xl font-bold max-sm:text-xl text-gray-600'>Confirm Password</label>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="ConfirmPassword"
+              value={userData.ConfirmPassword}
               onChange={hendelOnchange}
               className='w-full h-10 text-black max-sm:text-xl my-3 rounded-md text-xl px-2'
               

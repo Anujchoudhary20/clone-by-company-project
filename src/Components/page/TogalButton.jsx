@@ -154,10 +154,11 @@ const TogalButton = () => {
                       </div>
                     </div>
                   ))
-                : ResultsData.map((item) => (
+                : ResultsData.map((item ,index) => (
                     <div
                       className="  text-center  w-full flex justify-center   items-center "
-                      // style={{ width: "600px" }}
+                      // style={{ width: "600px" }} 
+                      key={index}
                     >
                       <div className="   bg-neutral-900   my-3  py-4  rounded-2xl items-center text-center">
                         <p className=" flex my-2 px-5   ">

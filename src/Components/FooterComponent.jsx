@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
@@ -6,8 +6,17 @@ import { FaXTwitter } from "react-icons/fa6";
 import { MdOutlineCopyright } from "react-icons/md";
 
 const FooterComponent = () => {
-  const footerItem = [
-    // { Name: "Profile", Navigat: "/profile" },
+    const [loginInfo,setLoginInfo]=useState([])
+
+  useEffect(() => {
+    // Fetch user information from localStorage
+    const storedInfo = JSON.parse(localStorage.getItem('userLogInformation')) || [];
+    setLoginInfo(storedInfo);
+  }, []);
+  const athontigation =loginInfo.email && loginInfo.password
+  const footerItem = [ 
+      (athontigation ?
+       ( { Name: "Profile", Navigat: "/profile"}) : {}),
     { Name: "Contect", Navigat: "/contect" },
      { Name: "Terms", Navigat: "/terms" },
     { Name: "Privacy", Navigat: "/privacy" },
@@ -19,8 +28,8 @@ const FooterComponent = () => {
       <div className="flex justify-between  w-screen ">
         <div className="flex  gap-4 my-2 text-slate-300 px-4">
           <ul className="text-center flex gap-4 max-sm:flex-col ">
-            {footerItem.map((item) => (
-              <li key={item.Name}>
+            {footerItem.map((item, index) => (
+              <li key={index}>
                 <Link to={item.Navigat}>{item.Name}</Link>{" "}
               </li>
             ))}
