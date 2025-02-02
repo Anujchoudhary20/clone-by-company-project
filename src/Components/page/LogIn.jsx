@@ -1,95 +1,101 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link ,useNavigate} from 'react-router-dom'
 import { toast } from "react-toastify";
 
 
-const Login = () => {
-  const [signUpInfo, setSignUpInfo] = useState([]);
-  const [userData, setUserData] = useState({
-    email: '',
-    password: ''
-  });
-  const navigate = useNavigate();
+const LogIn = () => {
+  const Navigate =useNavigate()
+  
+    const[emailMobile,setEmailMobile] =useState('')
+    const[password,setPassword] =useState('')
+    const [signUpInfo ,setSignUpInfo]= useState([])
+    useEffect(()=>{
+    const Info =JSON.parse(localStorage.getItem("signUpInfo")) || []
+     setSignUpInfo(Info)
+    },[])
+    console.log("anuj info",signUpInfo)
 
-  useEffect(() => {
-    // Fetch user information from localStorage
-    const storedInfo = JSON.parse(localStorage.getItem('userInformation')) || [];
-    setSignUpInfo(storedInfo);
+    const  LoginData= {
+      email : emailMobile,
+      mobileNumber: emailMobile,
+      password : password,
+    }
+  
     
-  }, []);
-  // console.log("login data ",signUpInfo.find(signUpInfo.email))
-
-  // Handle input changes
-  const handleOnChange = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value });
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Check if user exists in stored sign-up data
-    const userExists = signUpInfo.find(
-      (user) => user.email === userData.email && user.password === userData.password
-    );  
+    
+      
   
 
-    if (userExists) {
-      toast.success("Login successful!")
-      localStorage.setItem("userLogInformation", JSON.stringify(userData));
-    
-      navigate('/');
-    } else {
-      toast.error('Invalid email or password. Please try again.');
-    }
-  };
+      const HandleSubmit =(e)=>{
+        e.preventDefault()
+       const  LoginInfoEmail = signUpInfo.find(
+          (user)=>user.email ===emailMobile && user.password ===password
+        )
 
-  return (
-    <form className="bg-white w-full h-screen flex justify-center items-center" onSubmit={handleSubmit}>
-      <div className='bg-gray-300 rounded-md  py-5  px-10'>
-        <strong className='my-4 flex justify-center font-bold text-2xl'>Log In</strong>
-       
-          <div className="flex  flex-col max-sm:w-56 w-96 justify-center">
-            {/* email Input */}
-            <label className='text-2xl max-sm:text-xl font-bold text-gray-600'>Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              value={userData.email}
-              name="email"
-              onChange={handleOnChange}
-              className='w-full h-10 text-black my-3 max-sm:text-xl rounded-md text-2xl px-2'
-              required
-            />
-            {/* password  input*/}
-            <label className='text-2xl font-bold max-sm:text-xl text-gray-600'>Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              value={userData.password}
-              name="password"
-                 className='w-full h-10 text-black my-3 rounded-md text-2xl max-sm:text-xl px-2'
-              onChange={handleOnChange}
-              required
-            />
-            {/* forgot Password */}
-            <label className='text-2xl font-bold max-sm:text-xl text-gray-600'>
-              <Link to="/forgotpassword">Forgot Password?</Link>
-            </label>
-            <button
-              type="submit"
-              className='bg-blue-400 w-full my-3 h-12 rounded-3xl text-2xl font-bold hover:bg-blue-600 item'
-            >
-              Log In
-            </button>
-            <p className='text-2xl font-bold max-sm:text-xl text-gray-600'>
-              Don't have an account? <Link to="/signup">Sign Up</Link>
-            </p>
-          </div>
-        </div>
+        console.log("LoginInfoEmail",LoginInfoEmail)
+        const  LoginInfoMob = signUpInfo.find(
+          (user)=>user.mobileNumber === emailMobile && user.password ===password
+        )
+        console.log("LoginInfoMobile",LoginInfoMob)
+        if(LoginInfoEmail){
+          Navigate("/")
+          toast.success("Login successful using Email!")
+          // alert("Login successful using Email!");
+          localStorage.setItem("LoginInfo",JSON.stringify(LoginData) )
+        
+        }else if (LoginInfoMob){
+          Navigate("/")
+          toast.success("Login successful using Mobile Number!")
+          // alert("Login successful using Mobile Number!");
+        }
+        else{
+          toast.error("Invalid email/phone or password!")
+          // alert("Invalid email/phone or password!");
+
+        }
       
-    </form>
-  );
-};
+      }
 
-export default Login;
+    return (
+    <div className=' flex justify-center h-screen items-center w-full max-sm:px-5 overflow-hidden   text-black'>
+      
+        <form 
+        
+        className=' bg-white px-10 rounded-md py-5  h-80    flex flex-col w-96'>
+          <h1 className='flex justify-center text-3xl font-bold'>Log In</h1>
+        
+      {/* Email */}
+      <label htmlFor="">Email or Phone Nomber</label>
+      <input type="text" placeholder='Email or Phone Number'value={emailMobile} onChange={(e)=>setEmailMobile(e.target.value)} 
+      className='rounded-sm text-black px-1 border-gray-500 border-2' />
+      <p className='text-red-600 h-8'>{emailMobile ? "": "Email is Required"}</p>
+        {/* Contect Mob */}
+        {/* <label htmlFor="">Phone Nomber</label>
+      <input type="tel" placeholder=''value={mob} 
+      onChange={(e)=>{
+        let data =(e.target.value)
+        if (/^\d{0,10}$/.test(data))
+          {setMob(e.target.value)} 
+      }}
+      className='rounded-sm text-black px-1 border-gray-500 border-2'/> 
+      <p className='text-red-600 h-8'>{mob ? "": "Mobile No. is Required"}</p>*/}
+        {/* Password */}
+        <label htmlFor="">Password</label>
+      <input type="password" placeholder=' Password'value={password} onChange={(e)=>setPassword(e.target.value)} 
+      className='rounded-sm text-black px-1 border-gray-500 border-2' />
+      <p className='text-red-600 h-8'>{password ? "": "Password is Required"}</p>
+        <div>
+            <button 
+            onClick={HandleSubmit}
+            className='bg-blue-600 rounded-md w-full py-1 text-yellow-400 font-bold'>Log In</button>
+        </div>
+        <p className="py-2">
+        Don't have an account? <Link to="/signup">{" "}  SignUp</Link>
+            </p>
+
+      </form>
+    </div>
+  )
+}
+
+export default LogIn
